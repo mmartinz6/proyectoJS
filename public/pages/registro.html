@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
+    <link rel="stylesheet" href="../css/registro.css">
 </head>
 <body>
     <h1>Registro</h1>
     <div>
-        <label for="">Nombre completo</label>
+        <label for="nomCompleto">Nombre completo</label>
         <input type="text" name="" id="nomCompleto">
         <br>
-        <label for=""></label>
+        <label for="emailUsuario">Correo electrónico</label>
+        <input type="email" name="" id="emailUsuario">
+        <br>
+        <label for="telefono">Teléfono</label>
+        <input type="number" name="" id="telefono">
+        <br>
+        <label for="usuario">Nombre de suario</label>
+        <input type="text" name="" id="usuario">
+        <br>
+        <label for="">Contraseña</label>
+        <input type="password" name="" id="contrasenha">
+        <br>
+        <button id="btnRegistrarse">Registrarse</button>
+        <br><br>
+        <p id="mensajeError"></p>
+
     </div>
+    <script type="module" src="../js/registro.js"></script>
 </body>
 </html>
