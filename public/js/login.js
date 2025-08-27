@@ -13,7 +13,7 @@ btnLogin.addEventListener("click", async function () {
             usuarios[index].userName === idUser.value.trim() &&
             usuarios[index].contrasenha === passUser.value.trim()
         ) {
-            //Si hay una concidencia inicia sesión
+            //Si hay una concidencia inicia sesión esn estudiante
             window.location.href = "../pages/solicitudesEstudiantes.html";
             return;
         }
