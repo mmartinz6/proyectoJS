@@ -6,7 +6,16 @@
       "email": "made@gmail",
       "telefono": "84413170",
       "userName": "mmartinez",
-      "contrasenha": "12345",
+      "contrasenha": "1234",
+      "rol": "estudiante"
+    },
+    {
+      "id": "ecc2",
+      "nombre": "María Arguijo Sequeira",
+      "email": "maria@gmail.com",
+      "telefono": "8888888",
+      "userName": "marguijo",
+      "contrasenha": "5678",
       "rol": "estudiante"
     }
   ]
