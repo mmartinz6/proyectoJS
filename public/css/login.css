@@ -1,0 +1,37 @@
+body{
+    background-color: #EC008C;
+    background-image: url("../img/fwd_fondo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #4D4D4D;
+    font-family: Helvetica, sans-serif;
+    margin: 0px;
+}
+
+.header{
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.logo{
+    height: 60px;
+}
+
+.titulo{
+    color: #20BEC6;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+}
+
+.contenedor-fondo{
+    background-color: white;
+    border-radius: 12px;
+    color: #4D4D4D;
+    max-width: 400px;
+    margin: 30px auto;
+    box-sizing: border-box;
+    padding-top: 20px;
+}

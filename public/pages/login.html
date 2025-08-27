@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
+    <header class="header">
+        <div class="header-flex">
+            <a href="formulario.html">
+                <img src="img/fwd.png" alt="logo" class="logo">
+            </a>
+            <h1 class="titulo">SPUCA</h1>
+        </div>
+    </header>
     <h1>Iniciar Sesión</h1>
 
+<div class="contenedor-fondo">
     <input type="text" name="" id="idUser" placeholder="ID User">
     <br> <br>
     <input type="password" name="" id="passUser" placeholder="Contraseña">
@@ -18,9 +28,9 @@
     <br><br>
     <br>
     <div id="loginMensajeError"></div>
-    <!-- <a href="../pages/registro.html">Registrarse</a> -->
 
     <script type="module" src="../js/login.js"></script>
+</div>
    
 </body>
 </html>
