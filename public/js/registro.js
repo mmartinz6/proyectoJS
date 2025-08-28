@@ -50,7 +50,7 @@ btnRegistrarse.addEventListener("click", async function() {
 
         console.log(respuestaConfirmada);
     } else{
-        console.log("DIGITAAA UN EMAIL CORRECTOOO ALV");
+        console.log("DIGITAAA UN EMAIL");
     }
 })
 

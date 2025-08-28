@@ -1,4 +1,4 @@
-import { getRegistro } from "../services/servicesRegistro.js";
+import { getUsuarios } from "../services/servicesRegistro.js";
 
 const idUser = document.getElementById("idUser");
 const passUser = document.getElementById("passUser");
@@ -6,7 +6,8 @@ const btnLogin = document.getElementById("btnLogin");
 const loginMensajeError = document.getElementById("loginMensajeError");
 
 btnLogin.addEventListener("click", async function () {
-    const usuarios = await getRegistro();
+
+    const usuarios = await getUsuarios();
 
     for (let index = 0; index < usuarios.length; index++) {
         if (
