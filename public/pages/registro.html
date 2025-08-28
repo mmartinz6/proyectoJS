@@ -7,8 +7,18 @@
     <link rel="stylesheet" href="../css/registro.css">
 </head>
 <body>
-    <h1>Registro</h1>
-    <div>
+    <header class="header">
+        <div class="header-flex">
+            <a href="formulario.html">
+                <img src="../img/fwd.png" alt="logo" class="logo">
+            </a>
+            <h1 class="titulo">SPUCA</h1>
+        </div>
+    </header>
+
+    <div class="contenedor-fondo">
+        <h1>Registro</h1>
+
         <label for="nomCompleto">Nombre completo</label>
         <input type="text" name="" id="nomCompleto">
         <br>
@@ -24,9 +34,12 @@
         <label for="">Contraseña</label>
         <input type="password" name="" id="contrasenha">
         <br>
+
+        <div id="mensajes"></div>
+
         <button id="btnRegistrarse">Registrarse</button>
-        <br><br>
-        <p id="mensajeError"></p>
+        <br>
+        <button id="btnVolver">Volver al Login</button>
 
     </div>
     <script type="module" src="../js/registro.js"></script>

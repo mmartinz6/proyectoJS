@@ -7,11 +7,25 @@ body{
     color: #4D4D4D;
     font-family: Helvetica, sans-serif;
     margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .header{
     background-color: #ffffff;
     padding: 10px;
+    width: 100%;
+}
+
+.header-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .logo{
@@ -32,12 +46,38 @@ body{
     color: #4D4D4D;
     max-width: 400px;
     margin: 30px auto;
+    padding: 30px 20px;
     box-sizing: border-box;
-    padding-top: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.btnLogin{
-    background-color: #662D91;
+.icon-Usuario{
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    
+}
+
+input{
+    background: none;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s ease;
+    color: #662D91;
+}
+
+input:focus{
+    border-bottom: 2px solid #662D91;
+}
+
+#btnLogin{
+    background-color: #EC008C;
     color:#ffffff;
     font-weight: bold;
     width: 200px;
@@ -46,8 +86,7 @@ body{
     padding: 10px;
     border-radius: 6px;
 }
-
-.btnLogin:hover{
-    background-color: #0F9B3E;
+#btnLogin:hover{
+    background-color: #662D91;
     color: #FFFFFF;
 }

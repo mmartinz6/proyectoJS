@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-flex">
+            <img src="../img/fwd.png" alt="Logo" class="logo" />
+            <h1 class="titulo">Panel de Administrador</h1>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="adminDashboard.html" class="activo">Inicio</a></li>
+                <li><a href="historialSolicitudes.html">Historial</a></li>
+                <li><a href="aprobarSolicitudes.html">Aprobar Solicitudes</a></li>
+                <li><button id="btnLogout" class="logout">Cerrar Sesión</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="contenido">
+        <section class="bienvenida">
+            <h2 id="mensajeBienvenida">¡Bienvenido, Administrador!</h2>
+            <p>
+                Desde aquí puedes gestionar las solicitudes de los estudiantes, aprobarlas
+                o revisar el historial.
+            </p>
+        </section>
+
+        <!-- Tarjetas de acceso rápido -->
+        <section class="opciones">
+            <div class="card">
+                <h3>Historial de Solicitudes</h3>
+                <p>Revisa todas las solicitudes enviadas por los estudiantes.</p>
+                <a href="../pages/historialAdmin.html" class="btn">Ver Historial</a>
+            </div>
+
+            <div class="card">
+                <h3>Aprobar Solicitudes</h3>
+                <p>Gestiona las solicitudes pendientes y apruébalas rápidamente.</p>
+                <a href="../pages/aprobacionAdmin.html" class="btn">Ir a Aprobar</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

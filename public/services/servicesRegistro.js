@@ -1,4 +1,4 @@
-async function getRegistro() {
+async function getUsuarios() {
     try {
         
         const response = await fetch ('http://localhost:3001/usuarios',{
@@ -20,7 +20,7 @@ async function getRegistro() {
     }
 }
 
-async function postRegistro(usuario) {
+async function postUsuarios(usuario) {
     try {
         
         const response = await fetch ('http://localhost:3001/usuarios',{
@@ -44,4 +44,4 @@ async function postRegistro(usuario) {
     }
 }
 
-export{getRegistro, postRegistro}
+export{getUsuarios, postUsuarios}
