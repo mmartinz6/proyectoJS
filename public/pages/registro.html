@@ -17,26 +17,33 @@
     </header>
 
     <div class="contenedor-fondo">
-        <h1>Registro</h1>
+        <h1>Registro de estudiantes</h1>
+        <section>
+            <h1>Datos personales</h1>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="" id="nombre">
+            <br>
+            <label for="apeliido">Apellido</label>
+            <input type="text" name="" id="apellido">
+            <br>
+            <label for="emailUsuario">Correo electrónico</label>
+            <input type="email" name="" id="emailUsuario">
+            <br>
+            <label for="telefono">Teléfono</label>
+            <input type="number" name="" id="telefono">
+        </section>
+        
+        <section>
+            <h2>Datos de cuenta</h2>
+            <label for="usuario">Nombre de suario</label>
+            <input type="text" name="" id="usuario">
+            <br>
+            <label for="">Contraseña</label>
+            <input type="password" name="" id="contrasenha">
 
-        <label for="nomCompleto">Nombre completo</label>
-        <input type="text" name="" id="nomCompleto">
-        <br>
-        <label for="emailUsuario">Correo electrónico</label>
-        <input type="email" name="" id="emailUsuario">
-        <br>
-        <label for="telefono">Teléfono</label>
-        <input type="number" name="" id="telefono">
-        <br>
-        <label for="usuario">Nombre de suario</label>
-        <input type="text" name="" id="usuario">
-        <br>
-        <label for="">Contraseña</label>
-        <input type="password" name="" id="contrasenha">
-        <br>
+        </section>
 
         <div id="mensajes"></div>
-
         <button id="btnRegistrarse">Registrarse</button>
         <br>
         <button id="btnVolver">Volver al Login</button>

@@ -4,7 +4,7 @@ const sede = document.getElementById("sede");
 const fechaSalida = document.getElementById("fechaSalida");
 const fechaRegreso = document.getElementById("fechaRegreso")
 const codigoPc = document.getElementById("codigoPc");
-const condiciones = document.getElementById("condiciones");
+/* const condiciones = document.getElementById("condiciones"); */
 const btnEnviarSolicitud = document.getElementById("btnEnviarSolicitud");
 
 
@@ -15,7 +15,6 @@ btnEnviarSolicitud.addEventListener("click", async function() {
         fechaSalida:fechaSalida.value,
         fechaRegreso: fechaRegreso.value,
         codigoPc: fechaRegreso,
-        condiciones: condiciones
     }
     
     const respuestaConfirmada = await potUsers(solicitudEstudiante)

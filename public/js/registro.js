@@ -1,6 +1,7 @@
 import { getUsuarios, postUsuarios } from "../services/servicesRegistro.js";
 
-const nomCompleto = document.getElementById("nomCompleto");
+const nombre = document.getElementById("nombre");
+const apellido = document.getElementById("apellido")
 const emailUsuario = document.getElementById("emailUsuario");
 const telefono = document.getElementById("telefono");
 const usuario = document.getElementById("usuario");
@@ -10,7 +11,7 @@ const mensajes = document.getElementById("mensajes");
 const btnVolver = document.getElementById("btnVolver");
 
 btnRegistrarse.addEventListener("click", async function() {
-    if(!nomCompleto.value.trim() || !emailUsuario.value.trim() || !telefono.value.trim() || !usuario.value.trim()
+    if(!nombre.value.trim() || !apellido.value.trim() || !emailUsuario.value.trim() || !telefono.value.trim() || !usuario.value.trim()
         || !contrasenha.value.trim()){
         
             const parrafoMensaje = document.createElement("p")
@@ -34,10 +35,13 @@ btnRegistrarse.addEventListener("click", async function() {
         
     }
 
-    if (verificacion === true && verificacion2 === true && verificacion3 === true) {
-        console.log(verificacion);
+    if (verificacion && verificacion2 && verificacion3) {
+        const usuarioExistente = await getUsuarios();
+        const usuarioRepetido = usuarioExistente.filter(usuarioExistente => usuarioExistente.userName.toLowerCase() === usuario.value.toLowerCase());
+
         const usuarioNuevo ={
-            nombre:nomCompleto.value,
+            nombre:nombre.value,
+            apellido:apellido.value,
             email:emailUsuario.value,
             telefono:telefono.value,
             userName:usuario.value,
@@ -50,7 +54,7 @@ btnRegistrarse.addEventListener("click", async function() {
 
         console.log(respuestaConfirmada);
     } else{
-        console.log("DIGITAAA UN EMAIL");
+        console.log("DIGITA UN EMAIL");
     }
 })
 

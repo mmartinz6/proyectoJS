@@ -1,23 +1,24 @@
 {
   "usuarios": [
     {
-      "id": "0eb6",
+      "id": "7058",
       "nombre": "Madelin",
-      "email": "made@gmail",
+      "apellido": "Martínez",
+      "email": "made@gmail.com",
       "telefono": "84413170",
       "userName": "mmartinez",
       "contrasenha": "1234",
       "rol": "estudiante"
     },
     {
-      "id": "ecc2",
-      "nombre": "María Arguijo Sequeira",
-      "email": "maria@gmail.com",
-      "telefono": "8888888",
-      "userName": "marguijo",
-      "contrasenha": "5678",
-      "rol": "estudiante"
+      "id": "7058",
+      "nombre": "Steven",
+      "apellido": "Salas",
+      "email": "ssalas@fdw.com",
+      "telefono": "88008800",
+      "userName": "ssalas",
+      "contrasenha": "1602",
+      "rol": "profesor"
     }
   ]
 }
-
