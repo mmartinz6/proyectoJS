@@ -17,6 +17,33 @@
       "userName": "marguijo",
       "contrasenha": "5678",
       "rol": "estudiante"
+    },
+    {
+      "id": "922d",
+      "nombre": "Madelin",
+      "email": "made@gmail.com",
+      "telefono": "84413170",
+      "userName": "mmartinez",
+      "contrasenha": "123456789",
+      "rol": "estudiante"
+    },
+    {
+      "id": "f0f6",
+      "nombre": "Madelin",
+      "email": "made@gmail.com",
+      "telefono": "84413170",
+      "userName": "mmartinez",
+      "contrasenha": "123456789",
+      "rol": "estudiante"
+    },
+    {
+      "id": "38a6",
+      "nombre": "Madelin",
+      "email": "made@gmail.com",
+      "telefono": "84413170",
+      "userName": "mmartinez",
+      "contrasenha": "1234567890",
+      "rol": "estudiante"
     }
   ]
 }

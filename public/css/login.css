@@ -16,8 +16,12 @@ body{
 
 .header{
     background-color: #ffffff;
-    padding: 10px;
+    padding: 10px 20px;
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .header-flex{
@@ -44,12 +48,13 @@ body{
     background-color: white;
     border-radius: 12px;
     color: #4D4D4D;
-    max-width: 400px;
+    max-width: 500px;
     margin: 30px auto;
-    padding: 30px 20px;
-    box-sizing: border-box;
+    padding: 40px 20px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .icon-Usuario{
@@ -64,12 +69,13 @@ input{
     background: none;
     border: none;
     border-bottom: 2px solid #ccc;
-    padding: 10px;
+    padding: 10px 15px;
     font-size: 16px;
     width: 100%;
     outline: none;
     transition: border-color 0.3s ease;
     color: #662D91;
+    margin-bottom: 20px;
 }
 
 input:focus{

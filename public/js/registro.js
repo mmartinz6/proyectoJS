@@ -11,29 +11,47 @@ const btnVolver = document.getElementById("btnVolver");
 
 btnRegistrarse.addEventListener("click", async function() {
     if(!nomCompleto.value.trim() || !emailUsuario.value.trim() || !telefono.value.trim() || !usuario.value.trim()
-        || !usuario.value.trim() || !contrasenha.value.trim()){
+        || !contrasenha.value.trim()){
         
             const parrafoMensaje = document.createElement("p")
             parrafoMensaje.textContent = ("* Complete todos los campos. *")
             parrafoMensaje.classList.add("mensajeError")
             mensajes.appendChild(parrafoMensaje)
+
         return;
     }
 
-    const usuarioNuevo ={
-        nombre:nomCompleto.value,
-        email:emailUsuario.value,
-        telefono:telefono.value,
-        userName:usuario.value,
-        contrasenha:contrasenha.value,
-        rol: "estudiante"
+    let listaCorreos = ["fwd", "forward", "gmail"]
 
-    };
-    
-    const respuestaConfirmada = await postUsuarios(usuarioNuevo)
+    const verificacion = emailUsuario.value.includes("@")
+    const verificacion2 = emailUsuario.value.includes(".com")
+    let verificacion3 = false
 
-    console.log(respuestaConfirmada);
+    for (let index = 0; index < listaCorreos.length; index++) {
+        const element = listaCorreos[index];
+
+        verificacion3 = emailUsuario.value.includes(element)
+        
+    }
+
+    if (verificacion === true && verificacion2 === true && verificacion3 === true) {
+        console.log(verificacion);
+        const usuarioNuevo ={
+            nombre:nomCompleto.value,
+            email:emailUsuario.value,
+            telefono:telefono.value,
+            userName:usuario.value,
+            contrasenha:contrasenha.value,
+            rol: "estudiante"
+
+        };
     
+        const respuestaConfirmada = await postUsuarios(usuarioNuevo)
+
+        console.log(respuestaConfirmada);
+    } else{
+        console.log("DIGITAAA UN EMAIL CORRECTOOO ALV");
+    }
 })
 
 //Boton para volver a la pantalla de Login 
