@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="../css/solicitudEstudiante.css">
 </head>
 <body>
-    <header>
-        <h1>Solicitud de Computadora</h1>
+    <header class="header">
+        <div class="header-flex">
+            <a href="../pages/login.html">
+                <img src="../img/fwd.png" alt="logo" class="logo">
+            </a>
+            <h1 class="titulo">Solicitud</h1>
+        </div>
     </header>
 
-    <div>
-        <label for="nombreUsuario">Nombre del estudiante</label>
-        <input type="text" id="nombreUsuario" >
-        <br><br>
+    <div id="mensajeBienvenida"></div>
 
+    <div>
         <label for="sede">Sede</label>
         <select id="sede">
             <option value="">Seleccione una sede</option>

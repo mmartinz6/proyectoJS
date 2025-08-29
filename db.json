@@ -19,8 +19,44 @@
       "userName": "marguijo",
       "contrasenha": "5678",
       "rol": "estudiante"
+    },
+    {
+      "id": "8f5y",
+      "nombre": "Steven",
+      "apellido": "Salas",
+      "email": "ssalas@fwd.com",
+      "telefono": "88880000",
+      "userName": "ssalas",
+      "contrasenha": "1602",
+      "rol": "profesor"
+    },
+    {
+      "id": "bd92",
+      "nombre": "Dylan",
+      "apellido": "Quiros",
+      "email": "dquiros@gmail.com",
+      "telefono": "11111111",
+      "userName": "dquiros",
+      "contrasenha": "0000",
+      "rol": "estudiante"
     }
   ],
-
-    "solicitudes":[]
+  "solicitudes": [
+    {
+      "id": "7f99",
+      "nombreUsuario": "Madelin Martínez",
+      "sede": "puntarenas",
+      "fechaSalida": "2025-08-30",
+      "fechaRegreso": "2025-08-30",
+      "codigoPc": "dh46tys"
+    },
+    {
+      "id": "2e25",
+      "idSolitante": "7058",
+      "sede": "puntarenas",
+      "fechaSalida": "2025-08-29",
+      "fechaRegreso": "2025-08-22",
+      "codigoPc": "dh46tys"
+    }
+  ]
 }

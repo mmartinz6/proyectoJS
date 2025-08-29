@@ -53,6 +53,7 @@ btnRegistrarse.addEventListener("click", async function() {
         const respuestaConfirmada = await postUsuarios(usuarioNuevo)
 
         console.log(respuestaConfirmada);
+        window.location.href = "../pages/login.html";
     } else{
         console.log("DIGITA UN EMAIL");
     }

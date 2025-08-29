@@ -8,6 +8,9 @@ const loginMensajeError = document.getElementById("loginMensajeError");
 btnLogin.addEventListener("click", async function () {
     const usuarios = await getUsuarios();
 
+    const encontrarUser = usuarios.find(user => user.userName === idUser.value && user.contrasenha === passUser.value)
+    localStorage.setItem("userlog", JSON.stringify(encontrarUser))
+
     for (let index = 0; index < usuarios.length; index++) {
         const usuario = usuarios[index];
 
@@ -17,6 +20,7 @@ btnLogin.addEventListener("click", async function () {
         if (usernameCorrecto && passwordCorrecta) {
             // Verificar el rol del usuario y redirigir según corresponda
             if (usuario.rol === "admin" || usuario.rol === "profesor") {
+
                 window.location.href = "../pages/admin.html";
             } else if (usuario.rol === "estudiante") {
                 window.location.href = "../pages/solicitudesEstudiantes.html";
