@@ -1,7 +1,7 @@
 async function getSolicitud() {
     try {
         
-        const response = await fetch ('http://localhost:3001/usuarios',{
+        const response = await fetch ('http://localhost:3001/solicitudes',{
            
             method: 'GET',
             headers: {
@@ -9,36 +9,36 @@ async function getSolicitud() {
             }
         })
 
-        const users = await response.json()
+        const solicitudes = await response.json()
 
-        return users
+        return solicitudes
 
     } catch (error) {
-        console.error("Hay un error al obtener los usuarios", error)
+        console.error("Hay un error al obtener la solicitud", error)
 
         throw error
     }
 }
 
-async function postSolicitud(usuario) {
+async function postSolicitud(solicitud) {
     try {
         
-        const response = await fetch ('http://localhost:3001/usuarios',{
+        const response = await fetch ('http://localhost:3001/solicitudes',{
            
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
 
-            body:JSON.stringify(usuario)
+            body:JSON.stringify(solicitud)
         })
 
-        const users = await response.json()
+        const solicitudes = await response.json()
 
-        return users
+        return solicitudes
 
     } catch (error) {
-        console.error("Hay un error al crear el usuario", error)
+        console.error("Hay un error al crear la solicitud", error)
 
         throw error
     }

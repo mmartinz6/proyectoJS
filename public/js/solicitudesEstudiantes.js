@@ -1,23 +1,26 @@
+import { postSolicitud } from "../services/servicesSolicitudes.js";
 
 const nombreUsuario = document.getElementById("nombreUsuario");
 const sede = document.getElementById("sede");
 const fechaSalida = document.getElementById("fechaSalida");
 const fechaRegreso = document.getElementById("fechaRegreso")
 const codigoPc = document.getElementById("codigoPc");
-/* const condiciones = document.getElementById("condiciones"); */
-const btnEnviarSolicitud = document.getElementById("btnEnviarSolicitud");
+const btnSiguiente = document.getElementById("btnEnviarSolicitud");
+const mensaje = document.getElementById("mensaje")
 
 
-btnEnviarSolicitud.addEventListener("click", async function() {
+btnSiguiente.addEventListener("click", async function() {
 
-    const solicitudEstudiante ={
-        sede:sede.value,
-        fechaSalida:fechaSalida.value,
-        fechaRegreso: fechaRegreso.value,
-        codigoPc: fechaRegreso,
+    if (!nombreUsuario.value.trim() || !sede.value || !fechaSalida.value || !fechaRegreso.value || !codigoPc.value.trim()) {
+        
+        const parrafoMensaje = document.createElement("p")
+        parrafoMensaje.textContent = ("* Complete todos los campos. *")
+        parrafoMensaje.classList.add("mensajeError")
+        mensaje.appendChild(parrafoMensaje)
+        return;
     }
     
-    const respuestaConfirmada = await potUsers(solicitudEstudiante)
+    const respuestaConfirmada = await postSolicitud(solicitudEstudiante)
 
     console.log(respuestaConfirmada);
     

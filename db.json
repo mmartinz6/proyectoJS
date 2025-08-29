@@ -11,14 +11,16 @@
       "rol": "estudiante"
     },
     {
-      "id": "7058",
-      "nombre": "Steven",
-      "apellido": "Salas",
-      "email": "ssalas@fdw.com",
-      "telefono": "88008800",
-      "userName": "ssalas",
-      "contrasenha": "1602",
-      "rol": "profesor"
+      "id": "8c0c",
+      "nombre": "Maria",
+      "apellido": "Arguijo",
+      "email": "marguijo@gmail.com",
+      "telefono": "22222222",
+      "userName": "marguijo",
+      "contrasenha": "5678",
+      "rol": "estudiante"
     }
-  ]
+  ],
+
+    "solicitudes":[]
 }

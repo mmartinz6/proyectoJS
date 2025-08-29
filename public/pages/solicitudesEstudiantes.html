@@ -13,7 +13,7 @@
 
     <div>
         <label for="nombreUsuario">Nombre del estudiante</label>
-        <input type="text" id="nombreUsuario">
+        <input type="text" id="nombreUsuario" >
         <br><br>
 
         <label for="sede">Sede</label>
@@ -35,15 +35,9 @@
         <input type="text" id="codigoPc">
         <br><br>
 
-        <label>
-            <input type="checkbox" id="condiciones">
-            Acepto las condiciones de uso
-        </label>
-        <br><br>
-
-        <!-- <p id="mensajeError" class="oculto mensaje-error">⚠️ Complete todos los campos y acepte las condiciones.</p> -->
-
-        <button id="btnEnviarSolicitud">Enviar Solicitud</button>
+        <div id="mensaje"></div>
+       
+        <button id="btnSiguiente">Siguiente</button>
     </div>
 
     <script type="module" src="../js/solicitudesEstudiantes.js"></script>
