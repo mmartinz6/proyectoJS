@@ -33,7 +33,8 @@ btnSiguiente.addEventListener("click", async function() {
         sede: sede.value,
         fechaSalida: fechaSalida.value,
         fechaRegreso: fechaRegreso.value,
-        codigoPc: codigoPc.value
+        codigoPc: codigoPc.value,
+        estadoSolicitus: "pendiente"
     };
     
     const respuestaConfirmada = await postSolicitud(solicitudEstudiante)
