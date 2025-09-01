@@ -44,8 +44,7 @@ async function postSolicitud(solicitud) {
     }
 }
 
-// Actualizar el estado de una solicitud (PUT)
-// ACTUALIZAR PUT DE SOLICITUD
+// ACTUALIZA PUT DE SOLICITUD
 async function putSolicitud(solicitud, id) {
     try {
         const response = await fetch('http://localhost:3001/solicitudes/' + id, {

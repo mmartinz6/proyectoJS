@@ -5,109 +5,99 @@ const buscarEstudiante = document.getElementById("buscarEstudiante");
 const fechaDesde = document.getElementById("fechaDesde");
 const fechaHasta = document.getElementById("fechaHasta");
 const estadoFiltro = document.getElementById("estadoFiltro");
+const btnBuscar = document.getElementById("btnBuscar");
 const btnLimpiar = document.getElementById("btnLimpiar");
 
 const tablaHistorial = document.getElementById("tablaHistorial");
 const contador = document.getElementById("contador");
 
-// Cache en memoria para no pedir al servidor en cada filtro
-let historialEnriquecido = [];
+btnBuscar.addEventListener("click", async function () {
+  tablaHistorial.innerHTML = "";
+  contador.textContent = "";
 
-// 1) GET al servidor y enriquecer con nombre del estudiante
-const cargarHistorial = async function () {
-  const solicitudes = await getSolicitud();
-  const usuarios = await getUsuarios();
+  try {
+    // 1) Obtener solicitudes y usuarios
+    const solicitudes = await getSolicitud();
+    const usuarios = await getUsuarios();
 
-  // Mapea cada solicitud agregando el nombre completo del estudiante
-  historialEnriquecido = solicitudes.map(function (solicitud) {
-    const estudiante = usuarios.find(function (usuario) {
-      return usuario.id === solicitud.idSolitante; // ojo: tu campo es idSolitante
+    // 2) Enriquecer solicitudes con nombre completo del estudiante
+    const historialSolicitudes = solicitudes
+      .map(solicitud => {
+        const estudiante = usuarios.find(u => u.id === solicitud.idSolitante);
+        if (!estudiante) return null;
+        return {
+          ...solicitud,
+          nombreEstudiante: estudiante.nombre + " " + estudiante.apellido
+        };
+      })
+      .filter(item => item !== null);
+
+    // 3) Obtener valores de filtros
+    const texto = buscarEstudiante.value.trim().toLowerCase();
+    const estado = estadoFiltro.value;
+    const desde = fechaDesde.value ? new Date(fechaDesde.value) : null;
+    const hasta = fechaHasta.value ? new Date(fechaHasta.value) : null;
+
+    // 4) Filtrar solicitudes solo si hay filtros activos
+    const filtradas = historialSolicitudes.filter(item => {
+      let nombreMatch = true;
+      if (texto.length > 0) {
+        nombreMatch = item.nombreEstudiante.toLowerCase().includes(texto);
+      }
+
+      let estadoMatch = true;
+      if (estado.length > 0) {
+        estadoMatch = item.estadoSolicitus === estado;
+      }
+
+      let fechaMatch = true;
+      if (desde || hasta) {
+        const fechaItem = item.fechaSalida ? new Date(item.fechaSalida) : null;
+        if (desde && (!fechaItem || fechaItem < desde)) fechaMatch = false;
+        if (hasta && (!fechaItem || fechaItem > hasta)) fechaMatch = false;
+      }
+
+      return nombreMatch && estadoMatch && fechaMatch;
     });
 
-    const nombreEstudiante = estudiante
-      ? estudiante.nombre + " " + estudiante.apellido
-      : "Estudiante desconocido";
+    // 5) Mostrar resultados
+    if (filtradas.length === 0) {
+      tablaHistorial.innerHTML = "<tr><td colspan='8'>No hay solicitudes para mostrar.</td></tr>";
+      contador.textContent = "Mostrando 0 solicitudes.";
+      return;
+    }
 
-    return {
-      ...solicitud,
-      nombreEstudiante: nombreEstudiante
-    };
-  });
+    let filasHtml = "";
+    filtradas.forEach((item, index) => {
+      filasHtml += `<tr>
+        <th scope="row">${index + 1}</th>
+        <td>${item.nombreEstudiante}</td>
+        <td>${item.sede || ""}</td>
+        <td>${item.fechaSalida || ""}</td>
+        <td>${item.fechaRegreso || ""}</td>
+        <td>${item.codigoPc || ""}</td>
+        <td>${item.estadoSolicitus || ""}</td>
+        <td>${item.motivoRechazo || ""}</td>
+      </tr>`;
+    });
 
-  renderizar(historialEnriquecido);
-};
+    tablaHistorial.innerHTML = filasHtml;
+    contador.textContent = "Mostrando " + filtradas.length + " solicitud(es).";
 
-// 2) Generar HTML con map
-function renderizar(lista) {
-  if (!lista || lista.length === 0) {
-    tablaHistorial.innerHTML = "";
-    contador.textContent = "No hay solicitudes para mostrar.";
-    return;
+  } catch (error) {
+    console.error("Error al obtener solicitudes o usuarios", error);
+    tablaHistorial.innerHTML = "<tr><td colspan='8'>Error al cargar datos.</td></tr>";
+    contador.textContent = "";
   }
+});
 
-  const filas = lista
-    .map(function (item) {
-      return `
-        <tr>
-          <td>${item.nombreEstudiante}</td>
-          <td>${item.sede || ""}</td>
-          <td>${item.fechaSalida || ""}</td>
-          <td>${item.fechaRegreso || ""}</td>
-          <td>${item.codigoPc || ""}</td>
-          <td>${item.estadoSolicitus || ""}</td>
-          <td>${item.motivoRechazo || ""}</td>
-        </tr>
-      `;
-    })
-    .join("");
-
-  tablaHistorial.innerHTML = filas;
-  contador.textContent = "Mostrando " + lista.length + " solicitud(es).";
-}
-
-// 3) Filtros con filter (por estudiante, fecha y estado)
-function aplicarFiltros() {
-  const texto = buscarEstudiante.value.trim().toLowerCase();
-  const estado = estadoFiltro.value;
-  const desde = fechaDesde.value ? new Date(fechaDesde.value) : null;
-  const hasta = fechaHasta.value ? new Date(fechaHasta.value) : null;
-
-  const listaFiltrada = historialEnriquecido.filter(function (item) {
-    // Estudiante
-    const coincideNombre = texto
-      ? item.nombreEstudiante.toLowerCase().includes(texto)
-      : true;
-
-    // Estado
-    const coincideEstado = estado ? item.estadoSolicitus === estado : true;
-
-    // Fecha: usamos fechaSalida para el rango
-    const fechaItem = item.fechaSalida ? new Date(item.fechaSalida) : null;
-    const coincideFecha =
-      desde || hasta
-        ? (desde ? (fechaItem && fechaItem >= desde) : true) &&
-          (hasta ? (fechaItem && fechaItem <= hasta) : true)
-        : true;
-
-    return coincideNombre && coincideEstado && coincideFecha;
-  });
-
-  renderizar(listaFiltrada);
-}
-
-// Listeners de filtros
-buscarEstudiante.addEventListener("input", aplicarFiltros);
-estadoFiltro.addEventListener("change", aplicarFiltros);
-fechaDesde.addEventListener("change", aplicarFiltros);
-fechaHasta.addEventListener("change", aplicarFiltros);
-
+// Limpiar filtros
 btnLimpiar.addEventListener("click", function () {
   buscarEstudiante.value = "";
   fechaDesde.value = "";
   fechaHasta.value = "";
   estadoFiltro.value = "";
-  renderizar(historialEnriquecido);
+  tablaHistorial.innerHTML = "";
+  contador.textContent = "";
 });
 
-// Inicializar
-cargarHistorial();

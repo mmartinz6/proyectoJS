@@ -95,6 +95,28 @@
       "idprofesor": "fb16",
       "estadoSolicitus": "rechazada",
       "motivoRechazo": "Bullyin"
+    },
+    {
+      "id": "2377",
+      "idSolitante": "7058",
+      "sede": "puntarenas",
+      "fechaSalida": "2025-09-01",
+      "fechaRegreso": "2025-09-02",
+      "codigoPc": "swudehu",
+      "idprofesor": "fb16",
+      "estadoSolicitus": "rechazada",
+      "motivoRechazo": "husi"
+    },
+    {
+      "id": "a3c8",
+      "idSolitante": "7058",
+      "sede": "puntarenas",
+      "fechaSalida": "2025-09-01",
+      "fechaRegreso": "2025-09-02",
+      "codigoPc": "3y3r7g4",
+      "idprofesor": "fb16",
+      "estadoSolicitus": "rechazada",
+      "motivoRechazo": "MSKDNENB"
     }
   ]
 }

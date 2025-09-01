@@ -50,7 +50,7 @@ const cargarSolicitudes = async function() {
             };
             await putSolicitud(solicitudActualizada, solicitud.id);
             mensajesSolicitud.textContent = "Solicitud aprobada";
-            await cargarSolicitudes(); // Recargar lista
+            await cargarSolicitudes();
         });
         divSolicitud.appendChild(btnAceptar);
 
