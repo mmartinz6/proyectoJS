@@ -8,7 +8,7 @@ const usuario = document.getElementById("usuario");
 const contrasenha = document.getElementById("contrasenha");
 const btnRegistrarse = document.getElementById("btnRegistrarse");
 const mensajes = document.getElementById("mensajes");
-const btnVolver = document.getElementById("btnVolver");
+const btnCancelar = document.getElementById("btnCancelar");
 
 btnRegistrarse.addEventListener("click", async function() {
     if(!nombre.value.trim() || !apellido.value.trim() || !emailUsuario.value.trim() || !telefono.value.trim() || !usuario.value.trim()
@@ -21,7 +21,7 @@ btnRegistrarse.addEventListener("click", async function() {
 
         return;
     }
-
+    //lista de dominios permitidos
     let listaCorreos = ["fwd", "forward", "gmail"]
 
     const verificacion = emailUsuario.value.includes("@")
@@ -38,6 +38,14 @@ btnRegistrarse.addEventListener("click", async function() {
     if (verificacion && verificacion2 && verificacion3) {
         const usuarioExistente = await getUsuarios();
         const usuarioRepetido = usuarioExistente.filter(usuarioExistente => usuarioExistente.userName.toLowerCase() === usuario.value.toLowerCase());
+        
+        if (usuarioRepetido.length > 0) {
+            const parrafoMensaje = document.createElement("p");
+            parrafoMensaje.textContent = ("* Usuario ya existe. *");
+            parrafoMensaje.classList.add("mensajeError");
+            mensajes.appendChild(parrafoMensaje);
+            return;
+        }
 
         const usuarioNuevo ={
             nombre:nombre.value,
@@ -53,14 +61,16 @@ btnRegistrarse.addEventListener("click", async function() {
         const respuestaConfirmada = await postUsuarios(usuarioNuevo)
 
         console.log(respuestaConfirmada);
+
         window.location.href = "../pages/login.html";
+        
     } else{
-        console.log("DIGITA UN EMAIL");
+        console.log("DIGITAA UN EMAIL ALV");
     }
 })
 
 //Boton para volver a la pantalla de Login 
-btnVolver.addEventListener("click",function() {
+btnCancelar.addEventListener("click",function() {
 
     window.location.href = "../pages/login.html";
 });

@@ -1,10 +1,32 @@
 {
   "usuarios": [
     {
+      "id": "fb16",
+      "nombre": "Steven",
+      "apellido": "Salas",
+      "email": "ssalas@fwd.com",
+      "telefono": "88888888",
+      "userName": "ssalas",
+      "contrasenha": "1602",
+      "rol": "profesor",
+      "sede": "Puntarenas"
+    },
+    {
+      "id": "85yt",
+      "nombre": "Jean Carlos",
+      "apellido": "Barberena",
+      "email": "jcbarberena@fwd.com",
+      "telefono": "60606060",
+      "userName": "jcbarberena",
+      "contrasenha": "5050",
+      "rol": "profesor",
+      "sede": "San José"
+    },
+    {
       "id": "7058",
       "nombre": "Madelin",
       "apellido": "Martínez",
-      "email": "made@gmail.com",
+      "email": "mmartinez@gmail.com",
       "telefono": "84413170",
       "userName": "mmartinez",
       "contrasenha": "1234",
@@ -19,16 +41,6 @@
       "userName": "marguijo",
       "contrasenha": "5678",
       "rol": "estudiante"
-    },
-    {
-      "id": "8f5y",
-      "nombre": "Steven",
-      "apellido": "Salas",
-      "email": "ssalas@fwd.com",
-      "telefono": "88880000",
-      "userName": "ssalas",
-      "contrasenha": "1602",
-      "rol": "profesor"
     },
     {
       "id": "bd92",
@@ -49,32 +61,27 @@
       "userName": "nvillagra",
       "contrasenha": "4444",
       "rol": "estudiante"
+    },
+    {
+      "id": "004c",
+      "nombre": "Steven",
+      "apellido": "Martínez",
+      "email": "smartinez@gmail.com",
+      "telefono": "22222222",
+      "userName": "smartinez",
+      "contrasenha": "1400",
+      "rol": "estudiante"
     }
   ],
   "solicitudes": [
     {
-      "id": "7f99",
-      "nombreUsuario": "Madelin Martínez",
-      "sede": "puntarenas",
-      "fechaSalida": "2025-08-30",
-      "fechaRegreso": "2025-08-30",
-      "codigoPc": "dh46tys"
-    },
-    {
-      "id": "2e25",
+      "id": "073e",
       "idSolitante": "7058",
       "sede": "puntarenas",
-      "fechaSalida": "2025-08-29",
-      "fechaRegreso": "2025-08-22",
-      "codigoPc": "dh46tys"
-    },
-    {
-      "id": "4d5b",
-      "idSolitante": "7058",
-      "sede": "puntarenas",
-      "fechaSalida": "2025-08-29",
-      "fechaRegreso": "2025-08-30",
-      "codigoPc": "dh46tys",
+      "fechaSalida": "2025-09-01",
+      "fechaRegreso": "2025-09-02",
+      "codigoPc": "5CD4078CZ5",
+      "idprofesor": "fb16",
       "estadoSolicitus": "pendiente"
     }
   ]

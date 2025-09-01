@@ -6,79 +6,71 @@ body{
     background-attachment: fixed;
     color: #4D4D4D;
     font-family: Helvetica, sans-serif;
-    margin: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.header{
-    background-color: #ffffff;
-    padding: 10px 20px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-.header-flex{
+    /* margin: 0px; */
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 800px;
+    height: 100vh;
+}
+
+.contenedor{
     margin: 0 auto;
+    max-width: 1200px;
+    width: 95%;
 }
 
-.logo{
-    height: 60px;
-}
-
-.titulo{
-    color: #20BEC6;
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    flex: 1;
-}
-
-.contenedor-fondo{
-    background-color: white;
-    border-radius: 12px;
-    color: #4D4D4D;
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 40px 20px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.icon-Usuario{
-    width: 120px;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px auto;
+.contenedor-formulario{
+    display: flex;
     
 }
 
-input{
+.img-login{
+    background-image: url('../img/laptop.jpg');
+    flex: 0 0 calc(60%);
+    background-position: center center;
+    background-size: cover;
+    height: 200px;
+    position: relative;
+}
+
+.img-login::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, rgba(141, 169, 169, .5), rgba(236, 0, 140, .4 ));
+}
+
+.formulario{
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.texto-formulario h2{
+    font-size: 40px;
+    text-align: center;
+}
+
+.texto-formulario p{
+    font-size: 20px;
+    text-align: center;
+}
+
+.input input{
+    width: 100%;
+    padding: 10px 16px;
     background: none;
     border: none;
     border-bottom: 2px solid #ccc;
-    padding: 10px 15px;
-    font-size: 16px;
-    width: 50%;
     outline: none;
-    transition: border-color 0.3s ease;
-    color: #662D91;
     margin-bottom: 20px;
+    font-size: 18px;
+    color: #4D4D4D;
+    margin: 20px 0;
 }
 
-input:focus{
+.input input:focus{
     border-bottom: 2px solid #662D91;
 }
 
@@ -86,13 +78,149 @@ input:focus{
     background-color: #EC008C;
     color:#ffffff;
     font-weight: bold;
-    width: 200px;
+    width: 100%;
     border: none;
-    font-size: 18px;
+    font-size: 20px;
     padding: 10px;
     border-radius: 6px;
+    margin-top: 20px;
+    transition: background-color .3s ease-in-out; /*Suavizado al inicio al final e incio de la animación*/
 }
 #btnLogin:hover{
     background-color: #662D91;
     color: #FFFFFF;
+    cursor: pointer;
 }
+
+.link-registrarse a{
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #EC008C;
+}
+
+
+.header{
+    background-color: #ffffff;
+    padding: 10px 5px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.logo-contenedor{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo{
+    height: 60px;
+    width: auto;
+}
+
+.titulo{
+    color: #4D4D4D;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.links-nav{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btnLink{
+    color: #4D4D4D;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.btnLink:hover{
+    color: #EC008C;
+}
+
+.btnRegistro{
+    background-color: #EC008C;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btnRegistro:hover{
+    background-color: #662D91;
+}
+
+
+@media(min-width:768px){
+    .contenedor-formulario{
+        display: flex;
+    }
+}
+
+@media(min-width:768px){
+    .img-login{
+        height: auto;
+        background-position: right;
+    }
+}
+
+@media(min-width:1200px){
+    .img-login{
+        background-position: center;
+    }
+}
+
+@media(max-width: 767px){
+    .contenedor-formulario {
+        flex-direction: column; /* Pone imagen y formulario en columna */
+    }
+
+    .img-login {
+        order: -1; /* Mueve la imagen arriba */
+        flex: none; /* Anula el flex:0 0 calc(60%) para que use el ancho completo */
+        width: 100%; /* Asegura que la imagen ocupe todo el ancho */
+        height: 200px; /* Ajusta altura para móviles */
+        background-position: center; /* Centra la imagen */
+        background-size: cover; /* Mantiene la proporción */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .links-nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .titulo {
+        font-size: 24px;
+        text-align: center;
+    }
+}
+
+
+

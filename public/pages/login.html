@@ -9,33 +9,48 @@
 <body>
     <header class="header">
         <div class="header-flex">
-            <a href="../pages/login.html">
+            <div class="logo-contenedor">
                 <img src="../img/fwd.png" alt="logo" class="logo">
-            </a>
-            <h1 class="titulo">SPUCA</h1>
+                <h1 class="titulo">SPUCA</h1>
+            </div>
+
+            <nav class="links-nav">
+                <a href="../pages/login.html" class="btnLink">Iniciar sesión</a>
+                <a href="../pages/registro.html" class="btnRegistro">Registrarse</a>
+            </nav>
         </div>
     </header>
 
-<div class="contenedor-fondo">
-    <img src="../img/iconUser.svg" alt="" class="icon-Usuario">
-    <div contenedor-inputs>
-        <input type="text" name="" id="idUser" placeholder="Usuario">
-        <br> <br>
-        <input type="password" name="" id="passUser" placeholder="Contraseña">
-        <br> <br>
-        <button id="btnLogin">Iniciar Sesión</button>
-        <br>
-        <a id="btnRegistro" href="../pages/registro.html" target="_blank">Registrarse</a>
+<div class="contenedor contenedor-formulario">
+    <div class="img-login"></div>
+
+    <div class="formulario">
+        <div class="texto-formulario">
+            <h2>¡Bienvenido!</h2>
+            <p>Inicia sesión con tu cuenta</p>
+        </div>
+        
+        <div class="input">
+            <input type="text" name="" id="idUser" placeholder="Usuario">
+            <input type="password" name="" id="passUser" placeholder="Contraseña">
+        </div>
+
+        <div id="loginMensajeError"></div>
+
+        <div class="boton-iniciarSesion">
+            <button id="btnLogin">Iniciar Sesión</button>
+        </div>
+
+        <div class="link-registrarse">
+            <a id="btnRegistro" href="../pages/registro.html" target="_blank">¿Aún no tienes cuenta?</a>
+        </div>
+
+
 
     </div>
-
-
-    <div id="loginMensajeError"></div>
-
-    <div id="toastBox"></div>
 
     <script type="module" src="../js/login.js"></script>
 </div>
    
 </body>
-</html>
+</html> 

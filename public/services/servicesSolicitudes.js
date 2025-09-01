@@ -44,4 +44,16 @@ async function postSolicitud(solicitud) {
     }
 }
 
-export{getSolicitud, postSolicitud}
+// Actualizar el estado de una solicitud (PUT)
+async function putSolicitud(id, estado) {
+    const response = await fetch(`http://localhost:3001/solicitudes/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ estadoSolicitus: estado }) // Cambiamos solo el estado
+    });
+
+    if (!response.ok) throw new Error("Error al actualizar la solicitud");
+    return await response.json();
+}
+
+export { getSolicitud, postSolicitud, putSolicitud };

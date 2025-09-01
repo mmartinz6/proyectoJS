@@ -1,40 +1,116 @@
 body{
-    background-color: #20BEC6;
+    background-color: #F7901E;
     background-image: url("../img/fwd_fondo.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #4D4D4D;
     font-family: Helvetica, sans-serif;
-    margin: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    padding-top: 40px;
 }
 
 .header{
     background-color: #ffffff;
-    padding: 10px 20px;
+    padding: 10px 5px;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header-flex{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 800px;
+    max-width: 1400px;
     margin: 0 auto;
+    flex-wrap: wrap;
+    height: 80px;
+}
+
+.logo-contenedor{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 100%;
 }
 
 .logo{
     height: 60px;
+    width: auto;
 }
+
+.titulo{
+    color: #4D4D4D;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.links-nav{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    height: 100%;
+}
+
+.img-user{
+    width: 35px;
+    height: auto;
+}
+
+.btn-CerrarSesion{
+    background-color: #EC008C;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+
+.btn-CerrarSesion:hover{
+    background-color: #662D91;
+}
+
+/*CONTENEDOR DEL FORMULARIO DE SOLICITUD*/
+.contenedor-fondo {
+    max-width: 800px;
+    width: 90%;
+    margin: 100px auto 50px;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #4D4D4D;
+}
+
+.contenedor-fondo #titulo-contenedor{
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+#btnSiguiente{
+    background-color: #F7901E;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color .3s
+}
+
+#btnSiguiente:hover {
+    background-color: #EC008C;
+    cursor: pointer;
+}
+
 
 /*JS CSS*/
 .mensajeError{
