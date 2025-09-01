@@ -117,6 +117,17 @@
       "idprofesor": "fb16",
       "estadoSolicitus": "rechazada",
       "motivoRechazo": "MSKDNENB"
+    },
+    {
+      "id": "9ac1",
+      "idSolitante": "7058",
+      "sede": "puntarenas",
+      "fechaSalida": "2025-09-01",
+      "fechaRegreso": "2025-09-02",
+      "codigoPc": "NSE766",
+      "idprofesor": "fb16",
+      "estadoSolicitus": "pendiente",
+      "motivoRechazo": ""
     }
   ]
 }

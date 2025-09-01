@@ -1,0 +1,22 @@
+body{
+    background-color: #008FD4;
+    background-image: url("../img/fwd_fondo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #4D4D4D;
+    font-family: Helvetica, sans-serif;
+}
+
+/*CONTENEDOR DE LA SOLICITUD*/
+.contenedor-fondo {
+    max-width: 800px;
+    width: 90%;
+    margin: 100px auto 50px;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #4D4D4D;
+    margin: 100px auto 50px;
+}

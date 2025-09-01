@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprobacion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/aprobacionAdmin.css">
 </head>
 <body>
-    <main class="contenedor">
-    <h2>Solicitudes pendientes</h2>
+    <div class="contenedor-fondo p-4">
+        <h2>Solicitudes pendientes</h2>
 
-    <!-- Mensajes de error/éxito en pantalla -->
-    <div id="mensajes"></div>
+        <!-- Mensajes de error/éxito en pantalla -->
+        <div id="mensajes" class="mb-3"></div>
 
-    <!-- Contenedor donde se renderizan las tarjetas/lista -->
-    <div id="listaPendientes"></div>
-  </main>
+        <!-- Contenedor donde se renderizan las tarjetas/lista -->
+        <div id="listaPendientes">
+            <div class="card">
+                <div class="card-body">
+                    This is some text within a card body.
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <script type="module" src="../js/aprobacionAdmin.js"></script>
+    <script type="module" src="../js/aprobacionAdmin.js"></script>
 </body>
 </html>
