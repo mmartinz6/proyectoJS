@@ -1,21 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historial</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Historial de Solicitudes</title>
 </head>
 <body>
-    <header>
-        <h1>Historial de Solicitudes</h1>
-    </header>
+  <main>
+    <h2>Historial de Solicitudes</h2>
 
-    <div class="contenedorHistorial">
+    <!-- Filtros -->
+    <section>
+      <label for="buscarEstudiante">Estudiante:</label>
+      <input id="buscarEstudiante" type="text" placeholder="Nombre del estudiante"/>
 
-        <input type="text" id="buscador" placeholder="Buscar por estudiante, fecha o estado" />
-    
-        <div id="resultadoSolicitudes"></div>
+      <label for="fechaDesde">Desde:</label>
+      <input id="fechaDesde" type="date"/>
 
-    </div>
+      <label for="fechaHasta">Hasta:</label>
+      <input id="fechaHasta" type="date"/>
+
+      <label for="estadoFiltro">Estado:</label>
+      <select id="estadoFiltro">
+        <option value="">Todos</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="aprobada">Aprobada</option>
+        <option value="rechazada">Rechazada</option>
+      </select>
+
+      <button id="btnLimpiar">Limpiar filtros</button>
+    </section>
+
+    <!-- Contador / mensajes -->
+    <p id="contador"></p>
+
+    <!-- Tabla de historial -->
+    <table border="1" cellpadding="6" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Estudiante</th>
+          <th>Sede</th>
+          <th>Fecha salida</th>
+          <th>Fecha regreso</th>
+          <th>Código PC</th>
+          <th>Estado</th>
+          <th>Motivo rechazo</th>
+        </tr>
+      </thead>
+      <tbody id="tablaHistorial"></tbody>
+    </table>
+  </main>
+
+  <script type="module" src="../js/historialSolicitudes.js"></script>
 </body>
 </html>
+

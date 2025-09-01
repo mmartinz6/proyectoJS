@@ -79,7 +79,9 @@ btnSiguiente.addEventListener("click", async function() {
         fechaRegreso: fechaRegreso.value,
         codigoPc: codigoPc.value,
         idprofesor: idProfesor,
-        estadoSolicitus: "pendiente"
+        estadoSolicitus: "pendiente",
+        motivoRechazo: ""
+
     };
     
     localStorage.setItem("solicitudTemporalEstudiante",JSON.stringify(solicitudTemporalEstudiante))
