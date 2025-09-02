@@ -65,7 +65,7 @@ btnRegistrarse.addEventListener("click", async function() {
         window.location.href = "../pages/login.html";
         
     } else{
-        console.log("DIGITAA UN EMAIL ALV");
+        console.log("DIGITA UN EMAIL");
     }
 })
 

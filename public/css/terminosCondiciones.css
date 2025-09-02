@@ -6,7 +6,7 @@ body{
     background-attachment: fixed;
     color: #4D4D4D;
     font-family: Helvetica, sans-serif;
-    padding-top: 40px;
+    padding-top: 80px;
 }
 
 .header{
@@ -80,14 +80,35 @@ body{
     background-color: #662D91;
 }
 
-/*CONTENEDOR DEL FORMULARIO DE SOLICITUD*/
-.contenedor-fondo {
-    max-width: 800px;
-    width: 90%;
-    margin: 100px auto 50px;
-    padding: 20px 30px;
+/**/
+.container{
+    margin-top: 20px;
+}
+
+.form-check-input {
     background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    color: #4D4D4D;
+    border: 2px solid #008FD4;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    appearance: none;
+}
+
+.form-check-label{
+    font-weight: bold;
+}
+
+#btnAtras, #btnEnviar{
+    background-color: #F7901E;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+
+#btnAtras:hover, #btnEnviar:hover{
+    background-color: #EC008C;
 }
