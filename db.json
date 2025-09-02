@@ -93,7 +93,7 @@
       "fechaRegreso": "2025-09-04",
       "codigoPc": "nuNWU",
       "idprofesor": "fb16",
-      "estadoSolicitud": "pendiente",
+      "estadoSolicitud": "aprobada",
       "motivoRechazo": ""
     },
     {
@@ -125,6 +125,17 @@
       "fechaSalida": "2025-09-03",
       "fechaRegreso": "2025-09-05",
       "codigoPc": "eouchd",
+      "idprofesor": "fb16",
+      "estadoSolicitud": "aprobada",
+      "motivoRechazo": ""
+    },
+    {
+      "id": "3885",
+      "idSolitante": "7058",
+      "sede": "puntarenas",
+      "fechaSalida": "2025-09-02",
+      "fechaRegreso": "2025-09-03",
+      "codigoPc": "dehf9j",
       "idprofesor": "fb16",
       "estadoSolicitud": "pendiente",
       "motivoRechazo": ""

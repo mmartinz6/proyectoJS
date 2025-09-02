@@ -4,46 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
-    <header class="header">
-        <div class="header-flex">
-            <img src="../img/fwd.png" alt="Logo" class="logo" />
+    <!-- Usando bootstrap -->
+   <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+        <div class="container-fluid header-flex">
+            <!-- Logo y título -->
+            <a class="navbar-brand logo-contenedor d-flex align-items-center" href="../pages/admin.html">
+                <img src="../img/fwd.png" alt="Logo" class="logo">
+                <h1 class="titulo ms-2 mb-0">SPUCA</h1>
+            </a>
+
+            <!-- Botón hamburguesa para móvil -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú de navegación -->
+            <div class="collapse navbar-collapse links-nav" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link btnLink active" href="../pages/admin.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btnLink" href="../pages/historialAdmin.html">Historial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btnLink" href="../pages/aprobacionAdmin.html">Aprobar Solicitudes</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="btnLogout" class="btnRegistro ms-lg-3 mt-2 mt-lg-0">Cerrar Sesión</button>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <nav class="nav">
-            <ul>
-                <li><a href="../pages/admin.html" class="activo">Inicio</a></li>
-                <li><a href="../pages/historialAdmin.html">Historial</a></li>
-                <li><a href="../pages/aprobacionAdmin.html">Aprobar Solicitudes</a></li>
-                <li><button id="btnLogout" class="logout">Cerrar Sesión</button></li>
-            </ul>
-        </nav>
-    </header>
+    </nav>
+</header>
 
+    <main class="contenido container my-4">
+    <!-- Sección de bienvenida -->
+    <section class="bienvenida text-center mb-4">
+        <h2 id="mensajeBienvenida" class="fw-bold">¡Bienvenido!</h2>
+    </section>
 
-    <main class="contenido">
-        <section class="bienvenida">
-            <h2 id="mensajeBienvenida">¡Bienvenido!</h2>
-        </section>
-
-
-        <section class="opciones">
-            <div class="card">
-                <h3>Historial de Solicitudes</h3>
-                <p>Revisa todas las solicitudes enviadas por los estudiantes.</p>
-                <a href="../pages/historialAdmin.html" class="btn">Ver Historial</a>
+    <!-- Sección de opciones -->
+    <section class="opciones row justify-content-center g-4">
+        <!-- Tarjeta Historial -->
+        <div class="col-12 col-md-6 col-lg-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Historial de Solicitudes</h5>
+                    <p class="card-text">
+                        Revisa todas las solicitudes enviadas por los estudiantes.
+                    </p>
+                    <a href="../pages/historialAdmin.html" class="btn btnIr w-100">
+                        Ver Historial
+                    </a>
+                </div>
             </div>
+        </div>
 
-
-            <div class="card">
-                <h3>Aprobar Solicitudes</h3>
-                <p>Gestiona las solicitudes pendientes y apruébalas rápidamente.</p>
-                <a href="../pages/aprobacionAdmin.html" class="btn">Ir a Aprobar</a>
+        <!-- Tarjeta Aprobar Solicitudes -->
+        <div class="col-12 col-md-6 col-lg-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Aprobar Solicitudes</h5>
+                    <p class="card-text">
+                        Gestiona las solicitudes pendientes.
+                    </p>
+                    <a href="../pages/aprobacionAdmin.html" class="btn btnIr w-100">
+                        Ir a Aprobar
+                    </a>
+                </div>
             </div>
-        </section>
-    </main>
-
+        </div>
+    </section>
+</main>
 
     <script type="module" src="../js/admin.js"></script>
 </body>

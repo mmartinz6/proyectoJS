@@ -2,9 +2,6 @@
 const btnLogout = document.getElementById("btnLogout")
 
 
-
-
-
 //Boton para volver a la pantalla de Login 
 btnLogout.addEventListener("click",function() {
 

@@ -7,23 +7,70 @@ body{
     color: #4D4D4D;
     font-family: Helvetica, sans-serif;
     margin: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    display: block;
 }
+
+main.contenido {
+    padding-top: 90px;
+}
+
 
 .header{
     background-color: #ffffff;
-    padding: 10px 20px;
+    padding: 10px 5px;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 .logo{
     height: 60px;
+}
+
+.titulo{
+    color: #4D4D4D;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.btnRegistro{
+    background-color: #EC008C;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+
+.btnRegistro:hover{
+    background-color: #662D91;
+}
+
+.btnLink{
+    color: #4D4D4D;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.btnLink:hover{
+    color: #EC008C;
+}
+
+/*MAIN*/
+.btnIr{
+    background-color: #008FD4;
+    color: #ffffff;
+     transition: color 0.3s;
+}
+
+.btnIr:hover{
+    background-color: #EC008C;
+    color: #ffffff;
 }

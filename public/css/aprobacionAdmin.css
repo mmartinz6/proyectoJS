@@ -1,4 +1,4 @@
-body{
+body {
     background-color: #008FD4;
     background-image: url("../img/fwd_fondo.png");
     background-size: cover;
@@ -6,6 +6,58 @@ body{
     background-attachment: fixed;
     color: #4D4D4D;
     font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding-top: 90px; /* <<< AÑADIDO */
+    display: block;
+}
+
+.header{
+    background-color: #ffffff;
+    padding: 10px 5px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+
+.logo{
+    height: 60px;
+}
+
+.titulo{
+    color: #4D4D4D;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.btnRegistro{
+    background-color: #EC008C;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+
+.btnRegistro:hover{
+    background-color: #662D91;
+}
+
+.btnLink{
+    color: #4D4D4D;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.btnLink:hover{
+    color: #EC008C;
 }
 
 /*CONTENEDOR DE LA SOLICITUD*/
@@ -18,5 +70,62 @@ body{
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     color: #4D4D4D;
-    margin: 100px auto 50px;
+}
+
+/*CSS JS*/
+.solicitud {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(39, 59, 238, 0.5);
+}
+
+/* Contenedor de los botones dentro de cada solicitud */
+.div-Botones {
+    display: flex;
+    gap: 10px; 
+    margin-top: 10px;
+}
+
+.btn-Rechazar,
+.btn-Aceptar {
+    background-color: #008FD4;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+
+.btn-Rechazar:hover,
+.btn-Aceptar:hover{
+    background-color: #662D91;
+}
+
+.solicitud div p {
+    margin: 5px 0;
+}
+
+.div-motivo {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.btn-enviar {
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-enviar:hover {
+    background-color: #218838;
 }

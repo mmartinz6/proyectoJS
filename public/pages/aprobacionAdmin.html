@@ -8,6 +8,43 @@
     <link rel="stylesheet" href="../css/aprobacionAdmin.css">
 </head>
 <body>
+    <!-- Usando bootstrap -->
+   <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+        <div class="container-fluid header-flex">
+            <!-- Logo y título -->
+            <a class="navbar-brand logo-contenedor d-flex align-items-center" href="../pages/admin.html">
+                <img src="../img/fwd.png" alt="Logo" class="logo">
+                <h1 class="titulo ms-2 mb-0">SPUCA</h1>
+            </a>
+
+            <!-- Botón hamburguesa para móvil -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú de navegación -->
+            <div class="collapse navbar-collapse links-nav" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link btnLink active" href="../pages/admin.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btnLink" href="../pages/historialAdmin.html">Historial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btnLink" href="../pages/aprobacionAdmin.html">Aprobar Solicitudes</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="btnLogout" class="btnRegistro ms-lg-3 mt-2 mt-lg-0">Cerrar Sesión</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
     <div class="contenedor-fondo p-4">
         <h2>Solicitudes pendientes</h2>
 

@@ -10,7 +10,7 @@ const cargarSolicitudes = async function() {
     const todasSolicitudes = await getSolicitud();
     const usuarios = await getUsuarios();
 
-    // Filtra solo solicitudes pendientes de este profesor
+    // Filtra solo solicitudes pendientes del profesor seleccionado
     const solicitudesProfesor = todasSolicitudes.filter(solicitud => 
         solicitud.idprofesor === infoProfesor.id && solicitud.estadoSolicitud === "pendiente"
     );
@@ -39,9 +39,14 @@ const cargarSolicitudes = async function() {
         const mensajesSolicitud = document.createElement("div");
         divSolicitud.appendChild(mensajesSolicitud);
 
+        const divBotones = document.createElement("div")
+        divBotones.classList.add("div-Botones")
+
         // Botón Aceptar
         const btnAceptar = document.createElement("button");
         btnAceptar.textContent = "Aceptar";
+        btnAceptar.classList.add("btn-Aceptar")
+
         btnAceptar.addEventListener("click", async function() {
             const solicitudActualizada = {
                 ...solicitud,
@@ -57,7 +62,9 @@ const cargarSolicitudes = async function() {
         // Botón Rechazar
         const btnRechazar = document.createElement("button");
         btnRechazar.textContent = "Rechazar";
-        btnRechazar.addEventListener("click", () => {
+        btnRechazar.classList.add("btn-Rechazar")
+
+        btnRechazar.addEventListener("click", function() {
             mensajesSolicitud.innerHTML = "";
 
             const labelMotivo = document.createElement("p");
@@ -69,8 +76,12 @@ const cargarSolicitudes = async function() {
 
             const btnEnviarMotivo = document.createElement("button");
             btnEnviarMotivo.textContent = "Enviar";
+            btnEnviarMotivo.classList.add("btn-Aceptar");
 
-            btnEnviarMotivo.addEventListener("click", async () => {
+            btnEnviarMotivo.addEventListener("click", async function() {
+                const divMotivo = document.createElement("div");
+                divMotivo.classList.add("div-Motivo");
+                
                 const motivo = textareaMotivo.value.trim();
                 if (!motivo) {
                     const alerta = document.createElement("p");
@@ -90,13 +101,21 @@ const cargarSolicitudes = async function() {
                 await cargarSolicitudes();
             });
 
+            divMotivo.appendChild(textareaMotivo);
+            divMotivo.appendChild(btnEnviarMotivo);
+
             mensajesSolicitud.appendChild(labelMotivo);
             mensajesSolicitud.appendChild(textareaMotivo);
             mensajesSolicitud.appendChild(btnEnviarMotivo);
         });
-        divSolicitud.appendChild(btnRechazar);
+
+        divBotones.appendChild(btnAceptar);
+        divBotones.appendChild(btnRechazar);
+
+        divSolicitud.appendChild(divBotones);
 
         listaPendientes.appendChild(divSolicitud);
+
     });
 };
 
