@@ -12,7 +12,7 @@ const cargarSolicitudes = async function() {
 
     // Filtra solo solicitudes pendientes de este profesor
     const solicitudesProfesor = todasSolicitudes.filter(solicitud => 
-        solicitud.idprofesor === infoProfesor.id && solicitud.estadoSolicitus === "pendiente"
+        solicitud.idprofesor === infoProfesor.id && solicitud.estadoSolicitud === "pendiente"
     );
 
     if (solicitudesProfesor.length === 0) {
@@ -42,10 +42,10 @@ const cargarSolicitudes = async function() {
         // Botón Aceptar
         const btnAceptar = document.createElement("button");
         btnAceptar.textContent = "Aceptar";
-        btnAceptar.addEventListener("click", async () => {
+        btnAceptar.addEventListener("click", async function() {
             const solicitudActualizada = {
                 ...solicitud,
-                estadoSolicitus: "aprobada",
+                estadoSolicitud: "aprobada",
                 motivoRechazo: ""
             };
             await putSolicitud(solicitudActualizada, solicitud.id);
@@ -82,12 +82,12 @@ const cargarSolicitudes = async function() {
                 // Actualizar solo estado y motivo, manteniendo todo lo demás
                 const solicitudActualizada = {
                     ...solicitud,
-                    estadoSolicitus: "rechazada",
+                    estadoSolicitud: "rechazada",
                     motivoRechazo: motivo
                 };
                 await putSolicitud(solicitudActualizada, solicitud.id);
                 mensajesSolicitud.textContent = "Solicitud rechazada";
-                await cargarSolicitudes(); // Recargar lista
+                await cargarSolicitudes();
             });
 
             mensajesSolicitud.appendChild(labelMotivo);

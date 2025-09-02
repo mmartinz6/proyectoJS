@@ -66,4 +66,9 @@ btnEnviar.addEventListener("click", async function() {
        /*  window.location.href="../pages/solicitudesEstudiantes.html" */
     }
 
+    // Mostrar el toast
+        const toastElement = document.getElementById("toastEnvio");
+        const toast = new bootstrap.Toast(toastElement);
+        toast.show();
+
 })

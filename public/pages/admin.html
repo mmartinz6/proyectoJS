@@ -4,56 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  </head>
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
-  <div class="d-flex" style="min-height: 100vh;">
-    <!-- Sidebar -->
-    <aside class="bg-light p-3" style="width: 250px;">
-      <div class="text-center mb-4">
-        <img src="../img/fwd.png" alt="Logo" class="img-fluid" />
-      </div>
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a href="../pages/admin.html" class="nav-link active">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a href="../pages/historialAdmin.html" class="nav-link">Historial</a>
-        </li>
-        <li class="nav-item">
-          <a href="../pages/aprobacionAdmin.html" class="nav-link">Aprobar Solicitudes</a>
-        </li>
-        <li class="nav-item mt-3">
-          <button id="btnLogout" class="btn btn-danger w-100">Cerrar Sesión</button>
-        </li>
-      </ul>
-    </aside>
-
-    <!-- Contenido principal -->
-    <main class="flex-grow-1 p-4">
-      <section class="bienvenida mb-4">
-        <h2 id="mensajeBienvenida">¡Bienvenido!</h2>
-      </section>
-
-      <section class="opciones d-flex gap-3 flex-wrap">
-        <div class="card p-3 flex-fill">
-          <h3>Historial de Solicitudes</h3>
-          <p>Revisa todas las solicitudes enviadas por los estudiantes.</p>
-          <a href="../pages/historialAdmin.html" class="btn btn-primary">Ver Historial</a>
+    <header class="header">
+        <div class="header-flex">
+            <img src="../img/fwd.png" alt="Logo" class="logo" />
         </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="../pages/admin.html" class="activo">Inicio</a></li>
+                <li><a href="../pages/historialAdmin.html">Historial</a></li>
+                <li><a href="../pages/aprobacionAdmin.html">Aprobar Solicitudes</a></li>
+                <li><button id="btnLogout" class="logout">Cerrar Sesión</button></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="card p-3 flex-fill">
-          <h3>Aprobar Solicitudes</h3>
-          <p>Gestiona las solicitudes pendientes y apruébalas rápidamente.</p>
-          <a href="../pages/aprobacionAdmin.html" class="btn btn-primary">Ir a Aprobar</a>
-        </div>
-      </section>
+
+    <main class="contenido">
+        <section class="bienvenida">
+            <h2 id="mensajeBienvenida">¡Bienvenido!</h2>
+        </section>
+
+
+        <section class="opciones">
+            <div class="card">
+                <h3>Historial de Solicitudes</h3>
+                <p>Revisa todas las solicitudes enviadas por los estudiantes.</p>
+                <a href="../pages/historialAdmin.html" class="btn">Ver Historial</a>
+            </div>
+
+
+            <div class="card">
+                <h3>Aprobar Solicitudes</h3>
+                <p>Gestiona las solicitudes pendientes y apruébalas rápidamente.</p>
+                <a href="../pages/aprobacionAdmin.html" class="btn">Ir a Aprobar</a>
+            </div>
+        </section>
     </main>
-  </div>
 
-  <script type="module" src="../js/admin.js"></script>
+
+    <script type="module" src="../js/admin.js"></script>
 </body>
-
 </html>

@@ -61,6 +61,10 @@ body{
     height: auto;
 }
 
+.fw-semibold{
+    text-align: center;
+}
+
 .btn-CerrarSesion{
     background-color: #EC008C;
     color: #fff;

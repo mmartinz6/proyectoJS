@@ -58,8 +58,26 @@ async function asignarProfesor(sede) {
     }
 }
 
+// Fecha mínima de salida: hoy
+const hoy = new Date().toISOString().split("T")[0];
+fechaSalida.min = hoy;
+
+// Cuando cambie fechaSalida, actualizamos fechaRegreso.min
+fechaSalida.addEventListener("change", function() {
+    if (fechaSalida.value) {
+        fechaRegreso.min = fechaSalida.value;
+        // Si fechaRegreso es menor que la nueva fechaSalida, la reseteamos
+        if (fechaRegreso.value && fechaRegreso.value < fechaSalida.value) {
+            fechaRegreso.value = fechaSalida.value;
+        }
+    } else {
+        fechaRegreso.min = hoy;
+    }
+});
+
 //Botón para avanzar a la siguiente pagina(terminos y condiciones)
 btnSiguiente.addEventListener("click", async function() {
+    mensaje.innerHTML = "";
 
     if ( !sede.value.trim()  || !fechaSalida.value.trim()  || !fechaRegreso.value.trim()  || !codigoPc.value.trim()) {
         
@@ -67,6 +85,22 @@ btnSiguiente.addEventListener("click", async function() {
         parrafoMensaje.textContent = ("* Complete todos los campos. *")
         parrafoMensaje.classList.add("mensajeError")
         mensaje.appendChild(parrafoMensaje)
+        return;
+    }
+
+    if (fechaSalida.value < hoy) {
+        const parrafoMensaje = document.createElement("p");
+        parrafoMensaje.textContent = "* La fecha de salida no puede ser anterior a hoy. *";
+        parrafoMensaje.classList.add("mensajeError");
+        mensaje.appendChild(parrafoMensaje);
+        return;
+    }
+
+    if (fechaRegreso.value < fechaSalida.value) {
+        const parrafoMensaje = document.createElement("p");
+        parrafoMensaje.textContent = "* La fecha de regreso no puede ser anterior a la fecha de salida. *";
+        parrafoMensaje.classList.add("mensajeError");
+        mensaje.appendChild(parrafoMensaje);
         return;
     }
 
@@ -79,7 +113,7 @@ btnSiguiente.addEventListener("click", async function() {
         fechaRegreso: fechaRegreso.value,
         codigoPc: codigoPc.value,
         idprofesor: idProfesor,
-        estadoSolicitus: "pendiente",
+        estadoSolicitud: "pendiente",
         motivoRechazo: ""
 
     };

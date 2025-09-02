@@ -82,51 +82,51 @@
       "fechaRegreso": "2025-09-02",
       "codigoPc": "euyrbcud",
       "idprofesor": "fb16",
-      "estadoSolicitus": "rechazada",
+      "estadoSolicitud": "rechazada",
       "motivoRechazo": "Golpeó la pantalla"
     },
     {
-      "id": "e4f2",
+      "id": "0b17",
       "idSolitante": "7058",
       "sede": "puntarenas",
-      "fechaSalida": "2025-09-02",
-      "fechaRegreso": "2025-09-02",
-      "codigoPc": "nduir",
+      "fechaSalida": "2025-09-01",
+      "fechaRegreso": "2025-09-04",
+      "codigoPc": "nuNWU",
       "idprofesor": "fb16",
-      "estadoSolicitus": "rechazada",
-      "motivoRechazo": "Bullyin"
+      "estadoSolicitud": "pendiente",
+      "motivoRechazo": ""
     },
     {
-      "id": "2377",
+      "id": "c5a6",
+      "idSolitante": "7058",
+      "sede": "puntarenas",
+      "fechaSalida": "2025-09-01",
+      "fechaRegreso": "2025-09-04",
+      "codigoPc": "nuNWU",
+      "idprofesor": "fb16",
+      "estadoSolicitud": "rechazada",
+      "motivoRechazo": "Mal manejo"
+    },
+    {
+      "id": "a312",
       "idSolitante": "7058",
       "sede": "puntarenas",
       "fechaSalida": "2025-09-01",
       "fechaRegreso": "2025-09-02",
-      "codigoPc": "swudehu",
+      "codigoPc": "zheodho",
       "idprofesor": "fb16",
-      "estadoSolicitus": "rechazada",
-      "motivoRechazo": "husi"
+      "estadoSolicitud": "aprobada",
+      "motivoRechazo": ""
     },
     {
-      "id": "a3c8",
-      "idSolitante": "7058",
+      "id": "2b10",
+      "idSolitante": "234b",
       "sede": "puntarenas",
-      "fechaSalida": "2025-09-01",
-      "fechaRegreso": "2025-09-02",
-      "codigoPc": "3y3r7g4",
+      "fechaSalida": "2025-09-03",
+      "fechaRegreso": "2025-09-05",
+      "codigoPc": "eouchd",
       "idprofesor": "fb16",
-      "estadoSolicitus": "rechazada",
-      "motivoRechazo": "MSKDNENB"
-    },
-    {
-      "id": "9ac1",
-      "idSolitante": "7058",
-      "sede": "puntarenas",
-      "fechaSalida": "2025-09-01",
-      "fechaRegreso": "2025-09-02",
-      "codigoPc": "NSE766",
-      "idprofesor": "fb16",
-      "estadoSolicitus": "pendiente",
+      "estadoSolicitud": "pendiente",
       "motivoRechazo": ""
     }
   ]

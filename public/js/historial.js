@@ -1,103 +1,90 @@
-import { getSolicitud } from "../services/servicesSolicitudes.js";
 import { getUsuarios } from "../services/servicesRegistro.js";
+import { getSolicitud } from "../services/servicesSolicitudes.js";
 
+const tablaHistorial = document.getElementById("tablaHistorial");
 const buscarEstudiante = document.getElementById("buscarEstudiante");
 const fechaDesde = document.getElementById("fechaDesde");
 const fechaHasta = document.getElementById("fechaHasta");
 const estadoFiltro = document.getElementById("estadoFiltro");
 const btnBuscar = document.getElementById("btnBuscar");
 const btnLimpiar = document.getElementById("btnLimpiar");
-
-const tablaHistorial = document.getElementById("tablaHistorial");
 const contador = document.getElementById("contador");
 
-btnBuscar.addEventListener("click", async function () {
-  tablaHistorial.innerHTML = "";
-  contador.textContent = "";
+// Evento del botón "Enviar" que hace toda la lógica
+btnBuscar.addEventListener("click", async function() {
 
-  try {
-    // 1) Obtener solicitudes y usuarios
-    const solicitudes = await getSolicitud();
+    // Limpiar tabla anterior
+    tablaHistorial.innerHTML = "";
+    contador.textContent = "";
+
+    // Cargar datos desde los servicios
     const usuarios = await getUsuarios();
+    const solicitudes = await getSolicitud();
 
-    // 2) Enriquecer solicitudes con nombre completo del estudiante
-    const historialSolicitudes = solicitudes
-      .map(solicitud => {
-        const estudiante = usuarios.find(u => u.id === solicitud.idSolitante);
-        if (!estudiante) return null;
-        return {
-          ...solicitud,
-          nombreEstudiante: estudiante.nombre + " " + estudiante.apellido
-        };
-      })
-      .filter(item => item !== null);
+    console.log("Usuarios cargados:", usuarios);
+    console.log("Solicitudes cargadas:", solicitudes);
 
-    // 3) Obtener valores de filtros
-    const texto = buscarEstudiante.value.trim().toLowerCase();
-    const estado = estadoFiltro.value;
-    const desde = fechaDesde.value ? new Date(fechaDesde.value) : null;
-    const hasta = fechaHasta.value ? new Date(fechaHasta.value) : null;
+    // Comenzamos con todas las solicitudes
+    let filtradas = solicitudes;
 
-    // 4) Filtrar solicitudes solo si hay filtros activos
-    const filtradas = historialSolicitudes.filter(item => {
-      let nombreMatch = true;
-      if (texto.length > 0) {
-        nombreMatch = item.nombreEstudiante.toLowerCase().includes(texto);
-      }
-
-      let estadoMatch = true;
-      if (estado.length > 0) {
-        estadoMatch = item.estadoSolicitus === estado;
-      }
-
-      let fechaMatch = true;
-      if (desde || hasta) {
-        const fechaItem = item.fechaSalida ? new Date(item.fechaSalida) : null;
-        if (desde && (!fechaItem || fechaItem < desde)) fechaMatch = false;
-        if (hasta && (!fechaItem || fechaItem > hasta)) fechaMatch = false;
-      }
-
-      return nombreMatch && estadoMatch && fechaMatch;
-    });
-
-    // 5) Mostrar resultados
-    if (filtradas.length === 0) {
-      tablaHistorial.innerHTML = "<tr><td colspan='8'>No hay solicitudes para mostrar.</td></tr>";
-      contador.textContent = "Mostrando 0 solicitudes.";
-      return;
+    // Filtrar por nombre del estudiante
+    const nombreBuscar = buscarEstudiante.value.trim().toLowerCase();
+    if(nombreBuscar) {
+        filtradas = filtradas.filter(solicitud => {
+            const estudiante = usuarios.find(u => u.id === solicitud.idSolitante);
+            if(!estudiante) return false;
+            const nombreCompleto = `${estudiante.nombre} ${estudiante.apellido}`.toLowerCase();
+            return nombreCompleto.includes(nombreBuscar);
+        });
     }
 
-    let filasHtml = "";
-    filtradas.forEach((item, index) => {
-      filasHtml += `<tr>
-        <th scope="row">${index + 1}</th>
-        <td>${item.nombreEstudiante}</td>
-        <td>${item.sede || ""}</td>
-        <td>${item.fechaSalida || ""}</td>
-        <td>${item.fechaRegreso || ""}</td>
-        <td>${item.codigoPc || ""}</td>
-        <td>${item.estadoSolicitus || ""}</td>
-        <td>${item.motivoRechazo || ""}</td>
-      </tr>`;
+    // Filtrar por fechas
+    const desde = fechaDesde.value;
+    const hasta = fechaHasta.value;
+    if(desde){
+        filtradas = filtradas.filter(s => s.fechaSalida >= desde);
+    }
+    if(hasta){
+        filtradas = filtradas.filter(s => s.fechaRegreso <= hasta);
+    }
+
+    // Filtrar por estado
+    const estado = estadoFiltro.value;
+    if(estado){
+        filtradas = filtradas.filter(s => s.estadoSolicitud.toLowerCase() === estado.toLowerCase());
+    }
+
+    // Mostrar resultados
+    if(filtradas.length === 0){
+        contador.textContent = "No se encontraron resultados.";
+        return;
+    }
+
+    filtradas.forEach((solicitud, index) => {
+        const estudiante = usuarios.find(u => u.id === solicitud.idSolitante);
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${estudiante ? estudiante.nombre + " " + estudiante.apellido : "Desconocido"}</td>
+            <td>${solicitud.sede}</td>
+            <td>${solicitud.fechaSalida}</td>
+            <td>${solicitud.fechaRegreso}</td>
+            <td>${solicitud.codigoPc}</td>
+            <td>${solicitud.estadoSolicitud}</td>
+            <td>${solicitud.motivoRechazo || "-"}</td>
+        `;
+        tablaHistorial.appendChild(fila);
     });
 
-    tablaHistorial.innerHTML = filasHtml;
-    contador.textContent = "Mostrando " + filtradas.length + " solicitud(es).";
+    contador.textContent = `Se encontraron ${filtradas.length} solicitud(es).`;
+});
 
-  } catch (error) {
-    console.error("Error al obtener solicitudes o usuarios", error);
-    tablaHistorial.innerHTML = "<tr><td colspan='8'>Error al cargar datos.</td></tr>";
+// Botón Limpiar (opcional)
+btnLimpiar.addEventListener("click", function() {
+    buscarEstudiante.value = "";
+    fechaDesde.value = "";
+    fechaHasta.value = "";
+    estadoFiltro.value = "";
+    tablaHistorial.innerHTML = "";
     contador.textContent = "";
-  }
 });
-
-// Limpiar filtros
-btnLimpiar.addEventListener("click", function () {
-  buscarEstudiante.value = "";
-  fechaDesde.value = "";
-  fechaHasta.value = "";
-  estadoFiltro.value = "";
-  tablaHistorial.innerHTML = "";
-  contador.textContent = "";
-});
-
