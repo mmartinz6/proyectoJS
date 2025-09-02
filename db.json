@@ -137,8 +137,8 @@
       "fechaRegreso": "2025-09-03",
       "codigoPc": "dehf9j",
       "idprofesor": "fb16",
-      "estadoSolicitud": "pendiente",
-      "motivoRechazo": ""
+      "estadoSolicitud": "rechazada",
+      "motivoRechazo": "No guardó correctamente el equipo."
     }
   ]
 }

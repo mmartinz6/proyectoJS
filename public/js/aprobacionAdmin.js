@@ -76,7 +76,7 @@ const cargarSolicitudes = async function() {
 
             const btnEnviarMotivo = document.createElement("button");
             btnEnviarMotivo.textContent = "Enviar";
-            btnEnviarMotivo.classList.add("btn-Aceptar");
+            btnEnviarMotivo.classList.add("btn-enviar");
 
             btnEnviarMotivo.addEventListener("click", async function() {
                 const divMotivo = document.createElement("div");
@@ -101,12 +101,14 @@ const cargarSolicitudes = async function() {
                 await cargarSolicitudes();
             });
 
+            const divMotivo = document.createElement("div");
+            divMotivo.classList.add("div-motivo")
+
             divMotivo.appendChild(textareaMotivo);
             divMotivo.appendChild(btnEnviarMotivo);
 
             mensajesSolicitud.appendChild(labelMotivo);
-            mensajesSolicitud.appendChild(textareaMotivo);
-            mensajesSolicitud.appendChild(btnEnviarMotivo);
+            mensajesSolicitud.appendChild(divMotivo);
         });
 
         divBotones.appendChild(btnAceptar);

@@ -2,6 +2,16 @@
 const btnLogout = document.getElementById("btnLogout")
 
 
+const infoProfesor = JSON.parse(localStorage.getItem("userlog"));
+
+// Crear mensaje de bienvenida
+if (infoProfesor && infoProfesor.rol === "profesor") {
+    const parrafoBienvenida = document.createElement("p");
+    parrafoBienvenida.textContent = "¡Bienvenido/a, " + infoProfesor.nombre + " " + infoProfesor.apellido + "!";
+    parrafoBienvenida.classList.add("bienvenidoMensaje"); // Puedes usar una clase CSS para estilo
+    mensajeBienvenida.appendChild(parrafoBienvenida);
+}
+
 //Boton para volver a la pantalla de Login 
 btnLogout.addEventListener("click",function() {
 
